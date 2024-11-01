@@ -11,6 +11,8 @@ document.addEventListener("DOMContentLoaded", () => {
     { id: 3, name: "Product 3", price: 59.999 },
   ];
 
+  const cart = [];
+
   products.forEach((product) => {
     // productList.innerHTML
     const productDiv = document.createElement("div");
@@ -27,7 +29,13 @@ document.addEventListener("DOMContentLoaded", () => {
       const prodID = parseInt(e.target.getAttribute("data-id"));
       // console.log(prodID);
       const prodFind = products.find((p) => p.id === prodID);
-      console.log(prodFind);
+      //   console.log(prodFind);
+      addToCart(prodFind);
     }
   });
+  function addToCart(product){
+    cart.push(product);
+    console.log(cart);
+    
+  }
 });
