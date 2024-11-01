@@ -12,7 +12,7 @@ document.addEventListener("DOMContentLoaded", () => {
     { id: 3, name: "Product 3", price: 59.999 },
   ];
 
-  const cart = [];
+  let cart = [];
 
   products.forEach((product) => {
     // productList.innerHTML
@@ -75,6 +75,18 @@ document.addEventListener("DOMContentLoaded", () => {
     cart.length = 0;
     // console.log(cart);
     alert("Checkout Successfully");
+    renderCart();
+  });
+
+  //Add Remove Button Functionality
+  cartItems.addEventListener("click", (e) => {
+    if (e.target.tagName === "BUTTON") {
+      const prodID = parseInt(e.target.getAttribute("data-id"));
+      // cart = cart.filter(p => p.id!=prodID);
+      const firstIndex = cart.findIndex((item) => item.id === prodID);
+      cart.splice(firstIndex, 1);
+      // console.log(cart);
+    }
     renderCart();
   });
 });
