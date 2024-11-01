@@ -58,7 +58,17 @@ document.addEventListener("DOMContentLoaded", () => {
       });
     } else {
       //cart empty
+      cartItems.appendChild(emptyCart);
       emptyCart.classList.remove("hidden");
+      // cartTotalDisplay.classList.add("hidden");
+      totalPriceDisplay.textContent = `$0.00`;
     }
   }
+
+  checkoutBtn.addEventListener("click", () => {
+    cart.length = 0;
+    // console.log(cart);
+    alert("Check Successfully");
+    renderCart();
+  });
 });
