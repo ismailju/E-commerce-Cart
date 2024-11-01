@@ -51,10 +51,16 @@ document.addEventListener("DOMContentLoaded", () => {
         totalPrice += item.price;
         const cartItem = document.createElement("div");
         cartItem.innerHTML = `
-        ${item.name} - ${item.price.toFixed(2)}
+        <span>${item.name} - ${item.price.toFixed(2)}</span>
         `;
         cartItems.appendChild(cartItem);
         totalPriceDisplay.textContent = `${totalPrice.toFixed(2)}`;
+
+        cartItem.classList.add("cart");
+        const removeButton = document.createElement("button");
+        removeButton.innerHTML = `Remove`;
+        removeButton.setAttribute("data-id", item.id);
+        cartItem.appendChild(removeButton);
       });
     } else {
       //cart empty
