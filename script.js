@@ -12,7 +12,8 @@ document.addEventListener("DOMContentLoaded", () => {
     { id: 3, name: "Product 3", price: 59.999 },
   ];
 
-  let cart = [];
+  let cart = JSON.parse(localStorage.getItem("cart-value")) || [];
+  if (cart) renderCart();
 
   products.forEach((product) => {
     // productList.innerHTML
@@ -36,6 +37,7 @@ document.addEventListener("DOMContentLoaded", () => {
   });
   function addToCart(product) {
     cart.push(product);
+    saveToLocalStorage();
     renderCart();
   }
 
@@ -72,10 +74,11 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   checkoutBtn.addEventListener("click", () => {
-    if(cart.length ===0) return;
+    if (cart.length === 0) return;
     cart.length = 0;
     // console.log(cart);
     alert("Checkout Successfully");
+    saveToLocalStorage();
     renderCart();
   });
 
@@ -86,8 +89,13 @@ document.addEventListener("DOMContentLoaded", () => {
       // cart = cart.filter(p => p.id!=prodID);
       const firstIndex = cart.findIndex((item) => item.id === prodID);
       cart.splice(firstIndex, 1);
+      saveToLocalStorage();
       // console.log(cart);
     }
     renderCart();
   });
+
+  function saveToLocalStorage() {
+    localStorage.setItem("cart-value", JSON.stringify(cart));
+  }
 });
