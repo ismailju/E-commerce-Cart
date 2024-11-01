@@ -81,3 +81,26 @@ h2 {
 .hidden {
   display: none;
 }
+
+.cart {
+  /* background-color: #980707; */
+  padding: 10px;
+  margin-bottom: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  /* border-radius: 5px; */
+  width: 80%;
+}
+.cart button{
+  background-color: #e54405;
+  border: none;
+  padding: 5px 10px;
+  color: #fff;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+.cart button:hover{
+  background-color: #7c0202;
+}
