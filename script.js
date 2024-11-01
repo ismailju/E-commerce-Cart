@@ -17,7 +17,7 @@ document.addEventListener("DOMContentLoaded", () => {
     productDiv.classList.add("product");
     productDiv.innerHTML = `
     <span>${product.name} - ${product.price}</span>
-    <button>Add to cart</button>
+    <button "data-id"="${product.id}">Add to cart</button>
     `;
     productList.appendChild(productDiv);
   });
