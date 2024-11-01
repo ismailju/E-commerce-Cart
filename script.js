@@ -17,8 +17,17 @@ document.addEventListener("DOMContentLoaded", () => {
     productDiv.classList.add("product");
     productDiv.innerHTML = `
     <span>${product.name} - ${product.price}</span>
-    <button "data-id"="${product.id}">Add to cart</button>
+    <button data-id="${product.id}">Add to cart</button>
     `;
     productList.appendChild(productDiv);
+  });
+
+  productList.addEventListener("click", (e) => {
+    if (e.target.tagName === "BUTTON") {
+      const prodID = parseInt(e.target.getAttribute("data-id"));
+      // console.log(prodID);
+      const prodFind = products.find((p) => p.id === prodID);
+      console.log(prodFind);
+    }
   });
 });
