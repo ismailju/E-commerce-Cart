@@ -33,9 +33,8 @@ document.addEventListener("DOMContentLoaded", () => {
       addToCart(prodFind);
     }
   });
-  function addToCart(product){
+  function addToCart(product) {
     cart.push(product);
     console.log(cart);
-    
   }
 });
