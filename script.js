@@ -72,6 +72,7 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   checkoutBtn.addEventListener("click", () => {
+    if(cart.length ===0) return;
     cart.length = 0;
     // console.log(cart);
     alert("Checkout Successfully");
